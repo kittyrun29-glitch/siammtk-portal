@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiamMTK</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: "Prompt", sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* ---------------- NAVBAR ---------------- */
+        .navbar {
+            background-color: #1B75D1;        /* ฟ้าหลักของบริษัท */
+            padding: 12px 40px;               /* ขยับเข้ามาให้ห่างขอบ */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            box-sizing: border-box;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin-right: 20px;
+        }
+
+        .navbar ul li {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .navbar ul li:hover {
+            color: #0A2A66;
+        }
+
+        /* ---------------- HERO ---------------- */
+        .hero {
+            background-image: url("img01.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 70px;
+        }
+
+        .hero-overlay {
+            background-color: rgba(10, 42, 102, 0.55);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-text {
+            position: relative;
+            color: white;
+            text-align: center;
+            max-width: 80%;
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        /* ---------------- CONTENT BOXES ---------------- */
+        .section-box {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .section-box h2 {
+            color: #0A2A66;
+            font-size: 30px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 14px;
+            border: 1.5px solid #d7e8ff;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+            transition: 0.25s;
+            cursor: pointer;
+        }
+
+        .card-title {
+            font-size: 22px;
+            color: #1B75D1;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border: 2px solid #1B75D1;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.20);
+        }
+
+        /* ---------------- REMOVE LINK UNDERLINE ---------------- */
+        a.service-box {
+            text-decoration: none;      
+            color: inherit;             
+            display: block;             
+        }
+
+        a.service-box:hover {
+            color: inherit;
+        }
+        /* ================= MOBILE ================= */
+@media screen and (max-width: 768px) {
+
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .navbar ul {
+        gap: 10px;
+        margin-right: 0;
+        padding-left: 0;
+    }
+
+    .navbar ul li {
+        font-size: 14px;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .hero-text {
+        font-size: 26px;
+        max-width: 95%;
+    }
+
+    .hero-text span {
+        font-size: 18px !important;
+    }
+
+    .section-box {
+        padding: 20px;
+    }
+
+    .grid-menu {
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.jpg" alt="SiamMTK Logo">
+        </div>
+
+        <ul>
+            <li>ติดต่อ HR</li>
+        </ul>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            ยินดีต้อนรับสู่ระบบพนักงาน <br>บริษัท SiamMTK  
+            <br><span style="font-size: 28px; font-weight:300;">
+                ข่าวสาร • แจ้งปัญหา • ลางาน • Kaizen • เหตุฉุกเฉิน
+            </span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="section-box">
+        <h2>บริการสำหรับพนักงาน</h2>
+        <div class="grid-menu">
+
+            <!-- ข่าวบริษัท -->
+            <div class="card">
+                <a href="new.html" class="service-box">
+                    <div class="card-title">📢ข่าวบริษัท</div>
+                    <div>อัปเดตข่าวสารภายในและประกาศสำคัญ</div>
+                </a>
+            </div>
+
+            <!-- แจ้งปัญหาทั่วไป -->
+            <div class="card">
+              <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=kHCfcPkSkka0kl98DTvi5PWznn8490NFqJguQVxFkcRUNDU2SVFYTEZLRlE1ODdBMlpDQTlESjYyUS4u" 
+                class="service-box"
+                target="_blank">
+                <div class="card-title">🛠แจ้งปัญหาทั่วไป</div>
+                <div>แจ้งปัญหาเกี่ยวกับอุปกรณ์และพื้นที่ทำงาน</div>
+              </a>
+            </div>
+
+            <!-- แจ้งปัญหาไอที -->
+            <div class="card">
+              <a href="https://siammtk-my.sharepoint.com/:l:/g/personal/it_support_siammtk_co_th/JABhVwy5vXiJTqcsyICelyM9AejKYXAG8PLiitdA232ZElo?nav=ZmQ3ZWQ2ZmMtMjMwYy00MTFjLThiYWItOTI5YzMyOGU5MTlk" 
+                class="service-box"
+                target="_blank">
+                <div class="card-title">💻แจ้งปัญหาไอที</div>
+                <div>ส่งคำร้องเมื่อมีปัญหาด้านระบบหรืออุปกรณ์ไอที</div>
+              </a>
+            </div>
+
+            <!-- ลาป่วย -->
+            <div class="card">
+                <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=kHCfcPkSkka0kl98DTvi5PWznn8490NFqJguQVxFkcRUOEhJQVNHMUhVN0pPNExMRUdMQ1NCRk4ySC4u"
+                     class="service-box"
+                     target="_blank">
+                     <div class="card-title">🤒ลาป่วย</div>
+                    <div>ส่งคำขอลาป่วยได้ที่นี่</div>
+                </a>
+            </div>
+
+            <div class="card">
+                <a href="kaizen.html" class="service-box">
+                    <div class="card-title"> 💡 ข้อเสนอแนะ Kaizen</div>
+                    <div>ส่งแนวคิดเพื่อปรับปรุงงานและความปลอดภัย</div>
+                </a>
+            </div>
+
+
+            <div class="card">
+                <a href="emergency.html" class="service-box">
+                <div class="card-title">🚨 เหตุฉุกเฉิน</div>
+                <div>ขั้นตอนเมื่อเกิดไฟไหม้และอุบัติเหตุ</div>
+             </a>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+</body>
+</html>

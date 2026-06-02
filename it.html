@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แจ้งปัญหาไอที | SiamMTK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f7ff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid #0d6efd;
+            text-align: center;
+        }
+        h2 {
+            color: #0d2b61;
+            margin-bottom: 20px;
+        }
+        .icon {
+            font-size: 60px; /* ตัวแทนแน็ปไอคอน */
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            color: #0d2b61;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #c6d4f5;
+            background: #eef4ff;
+        }
+        textarea {
+            resize: none;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #084ebc;
+        }
+        .floating-back-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0d6efd;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            font-size: 15px;
+            z-index: 999;
+        }
+        .floating-back-box:hover {
+            background: #084ebc;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="icon">💻</div>
+    <h2>แจ้งปัญหาไอที</h2>
+
+    <form action="sendmail.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="type" value="แจ้งปัญหาไอที">
+
+        <label>ชื่อผู้แจ้ง:</label>
+        <input type="text" name="name" required>
+
+        <label>อุปกรณ์ที่มีปัญหา:</label>
+        <input type="text" name="device" required>
+
+        <label>รายละเอียดปัญหา:</label>
+        <textarea name="detail" rows="5" required></textarea>
+
+        <label>แนบไฟล์ (ภาพประกอบ / screenshot):</label>
+        <input type="file" name="attachment" accept="image/*">
+
+        <button type="submit">ส่งข้อมูล</button>
+    </form>
+</div>
+
+<a href="index.html" class="floating-back-box">← กลับหน้าแรก</a>
+
+</body>
+</html>

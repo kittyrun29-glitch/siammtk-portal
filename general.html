@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แจ้งปัญหาทั่วไป | SiamMTK</title>
+
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background: #f3f7ff; /* ฟ้าอ่อน */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff; /* ขาว */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid #0d6efd; /* น้ำเงิน */
+        }
+
+        h2 {
+            text-align: center;
+            color: #0d2b61; /* น้ำเงินเข้ม */
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-size: 15px;
+            font-weight: bold;
+            color: #0d2b61;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #c6d4f5;
+            border-radius: 8px;
+            background: #eef4ff;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #0d6efd; /* น้ำเงิน */
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #084ebc;
+        }
+
+        /* ปุ่มกลับแบบมุมขวาล่าง */
+        .floating-back-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #0d6efd;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+            font-size: 15px;
+            z-index: 999;
+            transition: 0.2s;
+        }
+
+        .floating-back-box:hover {
+            background: #084ebc;
+            transform: translateY(-3px);
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>แบบฟอร์มแจ้งปัญหาทั่วไป</h2>
+
+    <form action="sendmail.php" method="POST">
+
+        <input type="hidden" name="type" value="แจ้งปัญหาทั่วไป">
+
+        <label>ชื่อผู้แจ้ง:</label>
+        <input type="text" name="name" required>
+
+        <label>แผนก:</label>
+        <input type="text" name="dept" required>
+
+        <label>ปัญหาที่พบ:</label>
+        <textarea name="detail" rows="5" required></textarea>
+
+        <button type="submit">ส่งข้อมูล</button>
+
+    </form>
+
+</div>
+
+<a href="index.html" class="floating-back-box">← กลับหน้าแรก</a>
+
+</body>
+</html>

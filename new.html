@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ข่าวสารบริษัท - SiamMTK</title>
+
+<style>
+body{
+    margin:0;
+    font-family:"Prompt",sans-serif;
+    background:#f5f8fc;
+}
+
+.header{
+    background:#1B75D1;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:30px;
+}
+
+.news-card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    margin-bottom:25px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.news-image{
+    flex:1;
+    min-width:300px;
+}
+
+.news-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.news-content{
+    flex:2;
+    padding:25px;
+}
+
+.news-content h2{
+    color:#1B75D1;
+    margin-top:0;
+}
+
+.news-date{
+    color:#777;
+    margin-bottom:15px;
+}
+
+.back-btn{
+    display:inline-block;
+    background:#1B75D1;
+    color:white;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:8px;
+}
+
+.back-btn:hover{
+    background:#0A2A66;
+}
+
+@media(max-width:768px){
+    .news-card{
+        flex-direction:column;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+    <h1>📢 ข่าวสารบริษัท</h1>
+    <p>Company News & Announcements</p>
+</div>
+
+<div class="container">
+
+    <!-- ข่าว 1 -->
+    <div class="news-card">
+        <div class="news-image">
+            <img src="social-security.jpg" alt="ประกันสังคม">
+        </div>
+
+        <div class="news-content">
+            <div class="news-date">02 มิถุนายน 2569</div>
+            <h2>📌 แจ้งสิทธิประโยชน์ประกันสังคม</h2>
+            <p>
+                ฝ่ายทรัพยากรบุคคลขอประชาสัมพันธ์สิทธิประโยชน์ของผู้ประกันตน
+                เช่น ค่ารักษาพยาบาล การลาคลอด เงินทดแทนกรณีว่างงาน
+                และสิทธิการตรวจสุขภาพประจำปี
+            </p>
+        </div>
+    </div>
+
+    <!-- ข่าว 2 -->
+    <div class="news-card">
+        <div class="news-image">
+            <img src="white-factory.jpg" alt="โรงงานสีขาว">
+        </div>
+
+        <div class="news-content">
+            <div class="news-date">01 มิถุนายน 2569</div>
+            <h2>🏭 กิจกรรมโรงงานสีขาว</h2>
+            <p>
+                บริษัทขอความร่วมมือพนักงานทุกท่านร่วมสนับสนุนโครงการโรงงานสีขาว
+                เพื่อสร้างสภาพแวดล้อมการทำงานที่ปลอดจากยาเสพติด
+                และส่งเสริมคุณภาพชีวิตที่ดีภายในองค์กร
+            </p>
+        </div>
+    </div>
+
+    <!-- ข่าว 3 -->
+    <div class="news-card">
+        <div class="news-image">
+            <img src="drug-test.jpg.JPG" alt="ตรวจสารเสพติด">
+        </div>
+
+        <div class="news-content">
+            <div class="news-date">30 พฤษภาคม 2569</div>
+            <h2>🧪 การตรวจสารเสพติดประจำปี</h2>
+            <p>
+                บริษัทกำหนดตรวจสารเสพติดประจำปีตามนโยบายความปลอดภัย
+                ขอให้พนักงานทุกท่านเข้ารับการตรวจตามวันและเวลาที่กำหนด
+            </p>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">← กลับหน้าหลัก</a>
+
+</div>
+
+</body>
+</html>
