@@ -52,36 +52,70 @@
         }
 
         /* ---------------- HERO ---------------- */
-        .hero {
-            background-image: url("img01.jpg");
-            background-size: cover;
-            background-position: center;
-            height: 90vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            margin-top: 70px;
-        }
+       /* ---------------- HERO SLIDER ---------------- */
 
-        .hero-overlay {
-            background-color: rgba(10, 42, 102, 0.55);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+.hero{
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+    margin-top: 70px;
+}
 
-        .hero-text {
-            position: relative;
-            color: white;
-            text-align: center;
-            max-width: 80%;
-            font-size: 40px;
-            font-weight: bold;
-            line-height: 1.4;
-        }
+.hero-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(10,42,102,0.20);
+}
+
+.hero-text{
+    position:absolute;
+    top:50%;    
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:white;
+    text-align:center;
+    width:90%;
+    z-index:5;
+    font-size:40px;
+    font-weight:bold;
+    line-height:1.4;
+}
+
+.hero-text span{
+    font-size:24px;
+    font-weight:300;
+}
+
+.nav-btn{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:60px;
+    height:60px;
+    border:none;
+    border-radius:50%;
+    background:rgba(255,255,255,0.85);
+    cursor:pointer;
+    font-size:28px;
+    z-index:10;
+}
+
+.prev{ left:20px; }
+
+.next{ right:20px; }
+
+.nav-btn:hover{
+    background:white;
+}
 
         /* ---------------- CONTENT BOXES ---------------- */
         .section-box {
@@ -136,6 +170,29 @@
         }
         /* ================= MOBILE ================= */
 @media screen and (max-width: 768px) {
+    .dots{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:10;
+}
+
+.dot{
+    height:12px;
+    width:12px;
+    margin:0 5px;
+    background:white;
+    border-radius:50%;
+    display:inline-block;
+    cursor:pointer;
+    opacity:.5;
+}
+
+.dot.active{
+    opacity:1;
+    background:#1B75D1;
+}
 
     .navbar {
         padding: 10px 15px;
@@ -185,6 +242,9 @@
     .card-title {
         font-size: 20px;
     }
+    .nav-btn{
+    display:none;
+}
 }
 
     </style>
@@ -200,20 +260,37 @@
         </div>
 
         <ul>
-            <li>ติดต่อ HR</li>
+            <li><a href="contact.html" 
+            style="color:white;text-decoration:none;">📞 ติดต่อHR</a></li>
         </ul>
     </div>
 
-    <!-- Hero Banner -->
     <div class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-text">
-            ยินดีต้อนรับสู่ระบบบริการพนักงาน <br>บริษัท SiamMTK  
-            <br><span style="font-size: 28px; font-weight:300;">
-                ข่าวสาร • แจ้งปัญหา • ลางาน • Kaizen • เหตุฉุกเฉิน
-            </span>
-        </div>
-    </div>
+
+    <img id="heroImage" src="img01.jpg" class="hero-img">
+
+    <div class="hero-overlay"></div>
+
+    <button class="nav-btn prev" onclick="prevSlide()">❮</button>
+    <button class="nav-btn next" onclick="nextSlide()">❯</button>
+
+    <div id="heroText" class="hero-text">
+    ยินดีต้อนรับสู่ระบบบริการพนักงาน
+    <br>
+    บริษัท SiamMTK
+    <br><br>
+    <span>
+        ข่าวสาร • แจ้งปัญหา • ลางาน • Kaizen • เหตุฉุกเฉิน
+    </span>
+</div>
+<div class="dots">
+    <span class="dot active" onclick="goSlide(0)"></span>
+    <span class="dot" onclick="goSlide(1)"></span>
+    <span class="dot" onclick="goSlide(2)"></span>
+    <span class="dot" onclick="goSlide(3)"></span>
+</div>
+
+</div>
 
     <!-- Main Content -->
     <div class="section-box">
@@ -223,7 +300,8 @@
             <!-- ข่าวบริษัท -->
             <div class="card">
                 <a href="new.html" class="service-box">
-                    <div class="card-title">📢ข่าวบริษัท</div>
+                    <div style="font-size:48px;">📢</div>
+                    <div class="card-title">ข่าวบริษัท</div>
                     <div>อัปเดตข่าวสารภายในและประกาศสำคัญ</div>
                 </a>
             </div>
@@ -233,7 +311,8 @@
               <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=kHCfcPkSkka0kl98DTvi5PWznn8490NFqJguQVxFkcRUNDU2SVFYTEZLRlE1ODdBMlpDQTlESjYyUS4u" 
                 class="service-box"
                 target="_blank">
-                <div class="card-title">🛠แจ้งปัญหาทั่วไป</div>
+                <div style="font-size:48px;">🛠</div>
+                <div class="card-title">แจ้งปัญหาทั่วไป</div>
                 <div>แจ้งปัญหาเกี่ยวกับอุปกรณ์และพื้นที่ทำงาน</div>
               </a>
             </div>
@@ -243,7 +322,8 @@
               <a href="https://siammtk-my.sharepoint.com/:l:/g/personal/it_support_siammtk_co_th/JABhVwy5vXiJTqcsyICelyM9AejKYXAG8PLiitdA232ZElo?nav=ZmQ3ZWQ2ZmMtMjMwYy00MTFjLThiYWItOTI5YzMyOGU5MTlk" 
                 class="service-box"
                 target="_blank">
-                <div class="card-title">💻แจ้งปัญหาไอที</div>
+                <div style="font-size:48px;">💻</div>
+                <div class="card-title">แจ้งปัญหาไอที</div>
                 <div>ส่งคำร้องเมื่อมีปัญหาด้านระบบหรืออุปกรณ์ไอที</div>
               </a>
             </div>
@@ -253,14 +333,16 @@
                 <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=kHCfcPkSkka0kl98DTvi5PWznn8490NFqJguQVxFkcRUOEhJQVNHMUhVN0pPNExMRUdMQ1NCRk4ySC4u"
                      class="service-box"
                      target="_blank">
-                     <div class="card-title">🤒ลาป่วย</div>
+                     <div style="font-size:48px;">🤒</div>
+                     <div class="card-title">ลาป่วย</div>
                     <div>ส่งคำขอลาป่วยได้ที่นี่</div>
                 </a>
             </div>
 
             <div class="card">
                 <a href="kaizen.html" class="service-box">
-                    <div class="card-title"> 💡 ข้อเสนอแนะ Kaizen</div>
+                    <div style="font-size:48px;">💡</div>
+                    <div class="card-title">ข้อเสนอแนะ Kaizen</div>
                     <div>ส่งแนวคิดเพื่อปรับปรุงงานและความปลอดภัย</div>
                 </a>
             </div>
@@ -268,15 +350,83 @@
 
             <div class="card">
                 <a href="emergency.html" class="service-box">
-                <div class="card-title">🚨 เหตุฉุกเฉิน</div>
+                    <div style="font-size:48px;">🚨</div>
+                <div class="card-title">เหตุฉุกเฉิน</div>
                 <div>ขั้นตอนเมื่อเกิดไฟไหม้และอุบัติเหตุ</div>
              </a>
             </div>
-
+                            
             
 
         </div>
     </div>
+    <script>
+
+const images = [
+    "img01.jpg",
+    "3.png",
+    "2.png",
+    "4.JPG"
+];
+
+let current = 0;
+
+const heroImage =
+document.getElementById("heroImage");
+const heroText = document.getElementById("heroText");
+
+function updateHero() {
+
+    heroImage.src = images[current];
+
+    heroText.style.display =
+    (current === 0) ? "block" : "none";
+
+    if(current === 1 || current === 2){
+        heroImage.style.objectFit = "contain";
+    } else {
+        heroImage.style.objectFit = "cover";
+    }
+
+    const dots =
+    document.querySelectorAll(".dot");
+
+    dots.forEach(dot => {
+        dot.classList.remove("active");
+    });
+
+    dots[current].classList.add("active");
+}
+
+function nextSlide(){
+
+    current++;
+
+    if(current >= images.length){
+        current = 0;
+    }
+
+    updateHero();
+}
+
+function prevSlide(){
+
+    current--;
+
+    if(current < 0){
+        current = images.length - 1;
+    }
+
+    updateHero();
+}
+function goSlide(index){
+
+    current = index;
+    updateHero();
+}
+updateHero();
+
+</script>
 
 </body>
 </html>
