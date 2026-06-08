@@ -217,13 +217,17 @@
     }
 
     .hero-text {
-        top:50%;
-        font-size: 26px;
-        max-width: 95%;
+        top:40%;
+        font-size:26px;
+        max-width:95%;
     }
 
     .hero-text span {
         font-size: 18px !important;
+    }
+    .hero-img{
+        object-fit:cover !important;
+        object-position:center center;
     }
 
     .section-box {
@@ -383,7 +387,7 @@ function updateHero() {
     heroText.style.display =
     (current === 0) ? "block" : "none";
 
-    if(current === 1 || current === 2|| current === 3){
+    if(current === 1 || current === 2){
         heroImage.style.objectFit = "contain";
     } else {
         heroImage.style.objectFit = "cover";
